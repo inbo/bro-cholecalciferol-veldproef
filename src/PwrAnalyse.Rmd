@@ -1,0 +1,151 @@
+---
+title: "Power Analyse Praktische Resistentie"
+author: "Emma Cartuyvels"
+date: "2023-05-05"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(pwr)
+library(readxl)
+library(leaflet)
+library(tidyverse)
+```
+
+Tussen 2003 en 2010 
+
+H0: er zijn 50% besmette ratten
+H1: er zijn meer dan 50% besmette ratten in een specifiek regio van de Brugse Polders
+
+```{r}
+# range of possible proportions
+r <- seq(0.51,1,0.01)
+nr <- length(r)
+
+# power values
+p <- 0.8
+np <- length(p)
+
+# obtain sample sizes
+samsize <- array(numeric(nr*np), dim=c(nr,np),
+                 dimnames = list(as.character(r)))
+for (i in 1:np){
+  for (j in 1:nr){
+    result <- pwr.p.test(h = ES.h(p1 = r[j], p2 = 0.50),
+                         sig.level = 0.05,
+                         power = 0.80,
+                         alternative = "greater")
+    samsize[j,i] <- ceiling(result$n)
+  }
+}
+
+# set up graph
+xrange <- range(r)
+yrange <- round(range(samsize))
+colors <- rainbow(length(p))
+plot(xrange, yrange, type="n",
+     xlab="Correlation Coefficient (r)",
+     ylab="Sample Size (n)" )
+
+# add power curves
+for (i in 1:np){
+  lines(r, samsize[,i], type="l", lwd=2, col=colors[i])
+}
+
+# add annotation (grid lines, title, legend)
+abline(v=0, h=seq(0,yrange[2],50), lty=2, col="grey89")
+abline(h=0, v=seq(xrange[1],xrange[2],.02), lty=2,
+       col="grey89")
+title("Sample Size Estimation for Correlation Studies\n
+  Sig=0.05 (Two-tailed)")
+legend("topright", title="Power", as.character(p),
+       fill=colors)
+```
+
+
+```{r}
+## Berekenen succes ratio vorige proef + confidence interval
+vorige_proef <- read_xlsx("input/2003-2010_praktische_resistentie.xlsx",
+                          sheet = "Blad1")
+
+vorige_proef %>% 
+  filter(Bekken %in% c("Brugse Polder", "Brugse_Polders")) %>% 
+  mutate(Resistent = ifelse(PCA > 10, "Ja", "Nee")) %>% 
+  group_by(Resistent) %>% 
+  summarise(n())
+
+binom.test(11, 58)
+
+## Power analyse
+
+
+pwr.2p2n.test(h = ES.h(0.07, 0.19), 
+              n1 = 58, 
+              n2 = NULL, 
+              sig.level = 0.05, 
+              power = 0.8)
+
+
+# range of effect sizes
+# Bovenschelde seq(0.16, 0.87, 0.01)
+r <- c(seq(0,0.06,0.01), seq(0.36,0.98,0.01))
+nr <- length(r)
+
+# power values
+p <- 0.8
+np <- length(p)
+
+# obtain sample sizes
+samsize <- array(numeric(nr*np), dim=c(nr,np))
+for (i in 1:np){
+  for (j in 1:nr){
+    result <- pwr.2p2n.test(h = ES.h(r[j], 0.18), 
+                            n1 = 58, 
+                            n2 = NULL, 
+                            sig.level = 0.05, 
+                            power = p[i])
+    samsize[j,i] <- ceiling(result$n2)
+  }
+}
+
+# set up graph
+xrange <- range(r)
+yrange <- round(range(samsize))
+colors <- rainbow(length(p))
+plot(xrange, yrange, type="n",
+     xlab="Correlation Coefficient (r)",
+     ylab="Sample Size (n)" )
+
+# add power curves
+for (i in 1:np){
+  lines(r, samsize[,i], type="l", lwd=2, col=colors[i])
+}
+
+# add annotation (grid lines, title, legend)
+abline(v=0, h=seq(0,yrange[2],50), lty=2, col="grey89")
+abline(h=0, v=seq(xrange[1],xrange[2],.02), lty=2,
+       col="grey89")
+title("Sample Size Estimation for Correlation Studies\n
+  Sig=0.05 (Two-tailed)")
+legend("topright", title="Power", as.character(p),
+       fill=colors)
+
+
+```
+
+
+```{r}
+epsg31300 <- leafletCRS(
+  crsClass = "L.Proj.CRS",
+  code = "EPSG:31300",
+  proj4def = "+proj=lcc +lat_0=90 +lon_0=4.35693972222222 +lat_1=49.8333333333333 +lat_2=51.1666666666667 +x_0=150000.01256 +y_0=5400088.4378 +ellps=intl +towgs84=-106.8686,52.2978,-103.7239,-0.3366,0.457,-1.8422,1.2747 +units=m +no_defs +type=crs",
+  resolutions = 2^(16:7))
+
+
+leaflet(vorige_proef) %>% 
+  addTiles() %>% 
+  addMarkers(lng = vorige_proef$`X-coord.`, lat = vorige_proef$`Y-coord.`)
+```
+
