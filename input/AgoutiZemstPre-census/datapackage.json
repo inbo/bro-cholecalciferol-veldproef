@@ -1,0 +1,265 @@
+{
+  "name": "bro-veldproef-cholecalciferol-20230328081112",
+  "id": "a4802096-aa83-4d89-beb3-6270d8a967f2",
+  "profile": "https://raw.githubusercontent.com/tdwg/camtrap-dp/0.1.6/camtrap-dp-profile.json",
+  "created": "2023-03-28T08:11:12Z",
+  "sources": [
+    {
+      "title": "Agouti",
+      "path": "https://www.agouti.eu",
+      "email": "agouti@wur.nl"
+    }
+  ],
+  "contributors": [
+    {
+      "title": "Agouti Admins",
+      "email": "agouti@wur.nl",
+      "role": "contributor"
+    },
+    {
+      "title": "Emma Cartuyvels",
+      "email": "emma.cartuyvels@inbo.be",
+      "path": "https://orcid.org/0000-0001-7856-6360",
+      "role": "author",
+      "organization": "Research Institute for Nature and Forest (INBO)"
+    },
+    {
+      "title": "Jim Casaer",
+      "email": "jim.casaer@inbo.be",
+      "path": "https://orcid.org/0000-0001-6788-5876",
+      "role": "maintainer",
+      "organization": "Research Institute for Nature and Forest (INBO)"
+    },
+    {
+      "title": "Kristof Baert",
+      "email": "kristof.baert@inbo.be",
+      "role": "author"
+    }
+  ],
+  "organizations": [
+    {
+      "title": "Research Institute for Nature and Forest (INBO)",
+      "path": "https://www.inbo.be"
+    }
+  ],
+  "project": {
+    "id": "dcb2a3ac-22d3-445a-86a6-5e7a3f5f8481",
+    "title": "BRO - Veldproef Cholecalciferol",
+    "captureMethod": [
+      "motion detection",
+      "time lapse"
+    ],
+    "animalTypes": [
+      "unmarked"
+    ],
+    "classificationLevel": "sequence",
+    "sequenceInterval": 120
+  },
+  "spatial": {
+    "type": "Feature",
+    "bbox": [
+      4.42626,
+      50.9887,
+      4.42736,
+      50.98904
+    ],
+    "properties": {},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            4.42626,
+            50.9887
+          ],
+          [
+            4.42736,
+            50.9887
+          ],
+          [
+            4.42736,
+            50.98904
+          ],
+          [
+            4.42626,
+            50.98904
+          ],
+          [
+            4.42626,
+            50.9887
+          ]
+        ]
+      ]
+    }
+  },
+  "temporal": {
+    "start": "2023-02-06",
+    "end": "2023-02-14"
+  },
+  "taxonomic": [
+    {
+      "taxonID": "XBGG",
+      "taxonIDReference": "https://www.checklistbank.org/dataset/3LR",
+      "scientificName": "Columba palumbus",
+      "taxonRank": "species",
+      "vernacularNames": {
+        "en": "common wood pigeon",
+        "nl": "houtduif"
+      }
+    },
+    {
+      "taxonID": "6H2XM",
+      "taxonIDReference": "https://www.checklistbank.org/dataset/3LR",
+      "scientificName": "Erithacus rubecula",
+      "taxonRank": "species",
+      "vernacularNames": {
+        "en": "European robin",
+        "nl": "roodborst"
+      }
+    },
+    {
+      "taxonID": "3DXV3",
+      "taxonIDReference": "https://www.checklistbank.org/dataset/3LR",
+      "scientificName": "Felis catus",
+      "taxonRank": "species",
+      "vernacularNames": {
+        "en": "domestic cat",
+        "nl": "kat"
+      }
+    },
+    {
+      "taxonID": "6JPSJ",
+      "taxonIDReference": "https://www.checklistbank.org/dataset/3LR",
+      "scientificName": "Fringilla coelebs",
+      "taxonRank": "species",
+      "vernacularNames": {
+        "en": "common chaffinch",
+        "nl": "vink"
+      }
+    },
+    {
+      "taxonID": "3F6VX",
+      "taxonIDReference": "https://www.checklistbank.org/dataset/3LR",
+      "scientificName": "Gallinula chloropus",
+      "taxonRank": "species",
+      "vernacularNames": {
+        "en": "common moorhen",
+        "nl": "waterhoen"
+      }
+    },
+    {
+      "taxonID": "6MB3T",
+      "taxonIDReference": "https://www.checklistbank.org/dataset/3LR",
+      "scientificName": "Homo sapiens",
+      "taxonRank": "species",
+      "vernacularNames": {
+        "en": "human",
+        "nl": "mens"
+      }
+    },
+    {
+      "taxonID": "3Y9VW",
+      "taxonIDReference": "https://www.checklistbank.org/dataset/3LR",
+      "scientificName": "Martes foina",
+      "taxonRank": "species",
+      "vernacularNames": {
+        "en": "beech marten",
+        "nl": "steenmarter"
+      }
+    },
+    {
+      "taxonID": "75SVV",
+      "taxonIDReference": "https://www.checklistbank.org/dataset/3LR",
+      "scientificName": "Parus major",
+      "taxonRank": "species",
+      "vernacularNames": {
+        "en": "great tit",
+        "nl": "koolmees"
+      }
+    },
+    {
+      "taxonID": "4FWMN",
+      "taxonIDReference": "https://www.checklistbank.org/dataset/3LR",
+      "scientificName": "Phasianus colchicus",
+      "taxonRank": "species",
+      "vernacularNames": {
+        "en": "common pheasant",
+        "nl": "fazant"
+      }
+    },
+    {
+      "taxonID": "4N8CC",
+      "taxonIDReference": "https://www.checklistbank.org/dataset/3LR",
+      "scientificName": "Prunella modularis",
+      "taxonRank": "species",
+      "vernacularNames": {
+        "en": "dunnock",
+        "nl": "heggenmus"
+      }
+    },
+    {
+      "taxonID": "4RM67",
+      "taxonIDReference": "https://www.checklistbank.org/dataset/3LR",
+      "scientificName": "Rattus norvegicus",
+      "taxonRank": "species",
+      "vernacularNames": {
+        "en": "brown rat",
+        "nl": "bruine rat"
+      }
+    },
+    {
+      "taxonID": "598TT",
+      "taxonIDReference": "https://www.checklistbank.org/dataset/3LR",
+      "scientificName": "Troglodytes troglodytes",
+      "taxonRank": "species",
+      "vernacularNames": {
+        "en": "Eurasian wren",
+        "nl": "winterkoning"
+      }
+    },
+    {
+      "taxonID": "7CYVX",
+      "taxonIDReference": "https://www.checklistbank.org/dataset/3LR",
+      "scientificName": "Turdus merula",
+      "taxonRank": "species",
+      "vernacularNames": {
+        "en": "common blackbird",
+        "nl": "merel"
+      }
+    }
+  ],
+  "platform": {
+    "title": "Agouti",
+    "path": "https://agouti.eu",
+    "packageID": "a4802096-aa83-4d89-beb3-6270d8a967f2"
+  },
+  "resources": [
+    {
+      "name": "deployments",
+      "path": "deployments.csv",
+      "profile": "tabular-data-resource",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "schema": "https://raw.githubusercontent.com/tdwg/camtrap-dp/0.1.6/deployments-table-schema.json"
+    },
+    {
+      "name": "media",
+      "path": "media.csv",
+      "profile": "tabular-data-resource",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "schema": "https://raw.githubusercontent.com/tdwg/camtrap-dp/0.1.6/media-table-schema.json"
+    },
+    {
+      "name": "observations",
+      "path": "observations.csv",
+      "profile": "tabular-data-resource",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "schema": "https://raw.githubusercontent.com/tdwg/camtrap-dp/0.1.6/observations-table-schema.json"
+    }
+  ]
+}
