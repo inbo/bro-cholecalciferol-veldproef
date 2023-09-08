@@ -1,7 +1,7 @@
 library(camtraptor)
 library(tidyverse)
 
-precensus <- read_camtrap_dp("./input/bro-veldproef-cholecalciferol-20230328081112")
+precensus <- read_camtrap_dp("./input/AgoutiZemstPre-census")
 
 get_n_individuals(precensus, species = "brown rat")
 
